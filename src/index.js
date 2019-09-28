@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import TestClass from './TestClass.js'
 import Welcome from './component/fComp.js'
 import TestHandle from './component/TestHandle.js'
+import Text from './component/ContextTest.js'
+import HooksTest from './component/HooksTest.js'
 import pic from './logo.svg'
 // 引入css
 import './css/index.css'
@@ -70,5 +72,7 @@ ReactDOM.render(
     <div>
         <TestHandle/>
         <TestClass name='class Comp'></TestClass>
+        <Text></Text>
+        <HooksTest></HooksTest>
     </div>
 , document.getElementById('root'))
