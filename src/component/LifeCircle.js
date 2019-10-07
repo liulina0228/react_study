@@ -7,7 +7,7 @@ class LifeCircle extends Component {
     }
     // 新增的生命周期
     static getDerivedStateFromProps(nextProps, prevState) {
-        console.log(nextProps,prevState)
+        // console.log(nextProps,prevState)
         const {type} = nextProps;
         // type可能由props驱动，也可能由state驱动，这样判断会导致state驱动的type被回滚
         if (type !== prevState.type) {

@@ -19,6 +19,20 @@ function Lesson (props) {
     )
 }
 const LessonWithContent = withLesson(Lesson);
+// 高阶组件withLog 负责包装传入组件，具备挂载到DOM上可以输出日志
+const withLog = Comp => {
+    return class extends Component {
+        componentWillMount () {
+            console.log('has did mount: ', this.props);
+        }
+        render() {
+            return (
+                <Comp {...this.props}/>
+            )
+        }
+    }
+}
+const LessonWithLogAndContent = withLog(LessonWithContent);
 class HocTest extends Component {
     constructor(props) {
         super(props);
@@ -28,6 +42,7 @@ class HocTest extends Component {
     render() { 
         return ( <div>HOC
             <LessonWithContent index={1}></LessonWithContent>
+            <LessonWithLogAndContent index={2}></LessonWithLogAndContent>
         </div> );
     }
 }

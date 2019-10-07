@@ -4,6 +4,40 @@ const Context = React.createContext({counter: 0});
 const Context2 = React.createContext({name: '0'});
 const {Provider, Consumer} = Context;
 const {Provider2, Consumer2} = Context2;
+// 利用HOC改造这个consumer
+// withConsumer是高阶工厂，他可以根据配置返回一个高阶组件
+// es5写法
+// function withConsumer(Consumer) {
+    // 接收组件
+//     return function (Comp) {
+    // 返回组件
+//         return function(props){
+//             return (
+//                 <Consumer>
+//                     {value => <Comp {...value}></Comp>}
+//                 </Consumer>
+//             )
+//         }
+//     }
+// }
+// es6写法
+function withConsumer(Consumer) {
+    // 注意这里的Copm是组件所以首字母必须大写
+    return Comp => props => {
+        return (
+            <Consumer>
+                {value => <Comp {...value}></Comp>}
+            </Consumer>
+        )
+    }
+}
+const Child1 = withConsumer(Consumer)(function(props) {
+    return (
+        <div onClick={() => {
+            props.add()
+        }}>{props.counter}</div>
+    );
+})
 function Child(params) {
     return <div onClick={() => {
         params.add()
@@ -32,6 +66,9 @@ class Text extends Component {
                 <Consumer>
                     {value => <Child {...value}></Child>}
                 </Consumer>
+                <Child1></Child1>
+                <Child1></Child1>
+                <Child1></Child1>
             </Provider>
          );
     }
