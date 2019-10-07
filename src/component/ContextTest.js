@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+// 这个事配对使用  Context - Provider, Consumer
 const Context = React.createContext({counter: 0});
+const Context2 = React.createContext({name: '0'});
 const {Provider, Consumer} = Context;
+const {Provider2, Consumer2} = Context2;
 function Child(params) {
     return <div onClick={() => {
         params.add()

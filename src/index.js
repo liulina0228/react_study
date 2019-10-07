@@ -5,6 +5,9 @@ import Welcome from './component/fComp.js'
 import TestHandle from './component/TestHandle.js'
 import Text from './component/ContextTest.js'
 import HooksTest from './component/HooksTest.js'
+import LifeCircle from './component/LifeCircle'
+import HocTest from './component/HocTest'
+import HocTest2 from './component/HocTest2'
 import pic from './logo.svg'
 // 引入css
 import './css/index.css'
@@ -70,9 +73,12 @@ const styles = {
 //     />, document.getElementById('root'));
 ReactDOM.render(
     <div>
-        <TestHandle/>
-        <TestClass name='class Comp'></TestClass>
-        <Text></Text>
+        {/* <TestHandle/> */}
+        {/* <TestClass name='class Comp'></TestClass> */}
+        {/* <Text></Text> */}
         <HooksTest></HooksTest>
+        <LifeCircle list={[1,2,3,4,5,6,7,8,9]}></LifeCircle>
+        <HocTest></HocTest>
+        <HocTest2></HocTest2>
     </div>
 , document.getElementById('root'))
